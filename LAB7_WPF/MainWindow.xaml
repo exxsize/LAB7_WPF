@@ -1,0 +1,39 @@
+﻿<Window x:Class="LAB7_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LAB7_WPF"
+        mc:Ignorable="d"
+        Title="Зоопарк"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize"
+        GiveFeedback="Window_GiveFeedback">
+    <StackPanel>
+        <Canvas x:Name="canvas1" Margin="10,0,10,10" Width="480" Height="240" Background="LightGray"
+                AllowDrop="True" Drop="canvas1_Drop"
+                MouseDown="label1_MouseDown" DragLeave="canvas1_DragLeave" >
+            <TextBlock x:Name="label1" Canvas.Left="30" Text="Медведь" Canvas.Top="41" Padding="5" Tag="4" />
+            <TextBlock x:Name="label2" Canvas.Left="130" Text="Волк" Canvas.Top="41" Padding="5" Tag="3" />
+            <TextBlock x:Name="label3" Canvas.Left="230" Text="Лисица" Canvas.Top="41" Padding="5" Tag="2" />
+            <TextBlock x:Name="label4" Canvas.Left="330" Text="Заяц" Canvas.Top="41" Padding="5" Tag="1" />
+        </Canvas>
+        <UniformGrid x:Name="grid1" Margin="10,0,10,10" Columns="4"
+                     AllowDrop="True"
+                     PreviewDragEnter="canvas1_DragEnter"
+                     PreviewDragOver="canvas1_DragEnter"
+                     Drop="grid1_Drop">
+            <TextBox Text="" IsReadOnly="True" Background="Gray" Tag="0" />
+            <TextBox Text="" IsReadOnly="True" Background="Gray" Tag="0" />
+            <TextBox Text="" IsReadOnly="True" Background="Gray" Tag="0" />
+            <TextBox Text="" IsReadOnly="True" Background="Gray" Tag="0" />
+        </UniformGrid>
+        <Button x:Name="button1" HorizontalAlignment="Center" Margin="0,0,0,10" Click="button1_Click">
+            <StackPanel Margin="5,0" Orientation="Horizontal">
+                <Ellipse x:Name="mark1" Margin="5" Fill="Red" Width="15" Height="15" />
+                <TextBlock x:Name="caption1" Margin="5" Foreground="Red" Text="Зоопарк закрыт"/>
+            </StackPanel>
+        </Button>
+    </StackPanel>
+</Window>
